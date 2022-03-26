@@ -23,6 +23,15 @@
 
       <div *ngIf="editForm.get('email')?.touched && editForm.get('email')?.errors?.['email']"  class="alert alert-danger">Email no Valido</div>
 
+      <div class="form-group">
+        <label for="telefono" class="form-label mt-4">Numero Telefonico</label>
+        <input type="tel" class="form-control" id="telefono" placeholder="Ingresa Tu Numero de Telefono" name="telefono" required formControlName="telefono">
+      </div>
+
+      <div *ngIf="editForm.get('telefono')?.touched && editForm.get('telefono')?.errors?.['required']"  class="alert alert-danger">El Campo Telefono es requerido</div>
+
+      <div *ngIf="editForm.get('telefono')?.touched && editForm.get('telefono')?.errors?.['minlength']"  class="alert alert-danger">Numero Telefonico no Valido</div>
+
         <div class="form-group">
             <label for="fecha" class="form-label mt-4">Fecha de Inicio</label>
             <input type="date" class="form-control" id="fecha" name="fecha" required formControlName="fecha" value="{{ (selectedEmployee$ | async)?.fecha }}">

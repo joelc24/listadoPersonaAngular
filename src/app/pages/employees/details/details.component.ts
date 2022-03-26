@@ -20,6 +20,7 @@ export class DetailsComponent implements OnInit {
     this.selectedEmployee$.subscribe(data => {
       this.employees = data
     })
+    console.log('empleado->',this.employees)
   }
 
   onEdit(): void {
@@ -27,15 +28,18 @@ export class DetailsComponent implements OnInit {
   }
 
   onDelete(): void {
-    
-    const resp = confirm('¿Está seguro de eliminar este registro?');
-    this.selectedEmployee$.subscribe(data => {
-      if (resp) {
-        this.service.deleteEmployee(data).subscribe(data => {
-          this.router.navigate(['list']);
+    let resp = false
+    resp = confirm('¿Está seguro de eliminar este registro?');
+    if(resp){
+      
+          this.service.deleteEmployee(this.employees).subscribe(data => {
+            console.log(data)
+            resp = false
+            this.router.navigate(['list']);
         })
-      }
-    })
+      
+    
+  }
   }
 
 }

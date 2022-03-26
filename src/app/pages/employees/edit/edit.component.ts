@@ -44,6 +44,7 @@ export class EditComponent implements OnInit {
        email: ['',[Validators.required, Validators.email]],
        fecha: ['',[Validators.required]],
        notas: [''],
+       telefono: ['',[Validators.required, Validators.minLength(10)]],
        id: ['']
      })
    }
