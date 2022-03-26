@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeesService } from '../services/employees.service';
 import { EmployeI } from '../../../models/employe/employe.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-details',
@@ -28,7 +29,29 @@ export class DetailsComponent implements OnInit {
   }
 
   onDelete(): void {
-    let resp = false
+    Swal.fire({
+      title: '¿Está seguro de eliminar este registro?',
+      text: "Una vez Eliminado no Podra Recuperarse!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.deleteEmployee(this.employees).subscribe(data => {
+          console.log(data)
+        })
+        Swal.fire(
+          'Eliminado!',
+          'El Registro del Empleado Fue Borrado Satisfactoriamente.',
+          'success'
+        ).then(()=>{
+          this.router.navigate(['list']);
+        })
+      }
+    })
+    /* let resp = false
     resp = confirm('¿Está seguro de eliminar este registro?');
     if(resp){
       
@@ -39,7 +62,7 @@ export class DetailsComponent implements OnInit {
         })
       
     
-  }
+  } */
   }
 
 }
