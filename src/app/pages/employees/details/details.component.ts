@@ -51,18 +51,6 @@ export class DetailsComponent implements OnInit {
         })
       }
     })
-    /* let resp = false
-    resp = confirm('¿Está seguro de eliminar este registro?');
-    if(resp){
-      
-          this.service.deleteEmployee(this.employees).subscribe(data => {
-            console.log(data)
-            resp = false
-            this.router.navigate(['list']);
-        })
-      
-    
-  } */
   }
 
 }
