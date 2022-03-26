@@ -1,0 +1,24 @@
+<div class="card border-info mb-3 shadow">
+    <div class="card-header">Datos del Empleado</div>
+    <div class="card-body">
+      <h4 class="card-title">Nombre del Empleado: </h4>
+      <p class="card-text">{{ employees?.nombre }}</p><h4 class="card-title">Fecha de Inicio del Empleado: </h4>
+      <p class="card-text">{{ employees?.fecha }}</p><h4 class="card-title">Email del Empleado: </h4>
+      <p class="card-text">{{ employees?.email }}</p><h4 class="card-title">Telefono del Empleado: </h4>
+      <p class="card-text">{{ employees?.telefono }}</p>
+      <div *ngIf="(selectedEmployee$ | async)?.notas">
+        <h4 class="card-title">Notas del Empleado: </h4>
+        <p class="card-text">{{ employees?.notas }}</p>
+      </div>
+
+      
+    </div>
+    <div class="card-footer btn-group">
+        <button class="btn btn-warning m-1" (click)="onEdit()">Editar</button>
+        <button class="btn btn-danger m-1" (click)="onDelete()">Eliminar</button>
+    </div>
+  </div>
+  <a routerLink="/list"  class="btn btn-primary">Ir a Lista</a>
+
+
+  

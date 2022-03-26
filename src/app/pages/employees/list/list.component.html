@@ -1,0 +1,26 @@
+<h1>Listado de Empleados</h1>
+
+<div class="table-responsive mt-4">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Fecha de Inicio</th>
+            <th class="d-none d-sm-block" scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let item of employees">
+                <th scope="row">{{ item.nombre }}</th>
+                <td>{{ item.email }}</td>
+                <td>{{ item.fecha }}</td>
+            <td class="btn-group d-none d-sm-block" role="group">
+                <button type="button" class="btn btn-info m-1" (click)="Ver(item)">Ver</button>
+                <button type="button" class="btn btn-warning m-1" (click)="Editar(item)">Editar</button>
+                <button type="button" class="btn btn-danger m-1" (click)="Eliminar(item)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,65 @@
+{
+  "employees": [
+    {
+      "nombre": "Joel",
+      "fecha": "2022-03-17",
+      "email": "correo@correo.com",
+      "telefono": "3137700862",
+      "notas": "Prueba de validación",
+      "id": 1
+    },
+    {
+      "nombre": "Joel",
+      "fecha": "2022-03-19",
+      "email": "correo@correo.com",
+      "telefono": "3137700862",
+      "notas": "Prueba uno",
+      "id": 2
+    },
+    {
+      "nombre": "juan",
+      "fecha": "2022-03-22",
+      "email": "correo@correo.com",
+      "telefono": "12345892",
+      "notas": "Prueba tres",
+      "id": 4
+    },
+    {
+      "nombre": "chucho",
+      "fecha": "2022-03-17",
+      "email": "correo@correo.com",
+      "telefono": "12345689",
+      "notas": "",
+      "id": 5
+    },
+    {
+      "nombre": "David",
+      "fecha": "2022-03-26",
+      "email": "correo.com",
+      "telefono": "312564789",
+      "notas": "no hay notas",
+      "id": 6
+    },
+    {
+      "nombre": "Diego",
+      "email": "correo@correo.com",
+      "fecha": "2022-03-26",
+      "notas": "Buen Programador",
+      "id": 7
+    },
+    {
+      "nombre": "Victor Pimiento",
+      "email": "correo@correo.com",
+      "fecha": "2022-03-25",
+      "notas": "No hay nota",
+      "id": 8
+    },
+    {
+      "nombre": "Jesus Pedraza",
+      "email": "correo@correo.com",
+      "fecha": "2022-03-13",
+      "notas": "Programador Js",
+      "id": 9
+    }
+  ]
+}
