@@ -27,7 +27,10 @@
       "fecha": "2022-03-26",
       "notas": "sin comentarios",
       "telefono": "1234568982",
-      "id": 15
+      "id": 15,
+      "areas": [
+        "Testin"
+      ]
     },
     {
       "nombre": "Prueba",
@@ -35,7 +38,24 @@
       "fecha": "2022-03-26",
       "notas": "",
       "telefono": "1234568982",
-      "id": 19
+      "id": 19,
+      "areas": [
+        "Sistema",
+        "Testing"
+      ]
+    },
+    {
+      "nombre": "Prueba 2 v1",
+      "email": "correo@correo.com",
+      "fecha": "2022-04-16",
+      "notas": "SIN NOTAS",
+      "telefono": "1234568982",
+      "areas": [
+        "DESARROLLO",
+        "sistema",
+        "Soporte TI"
+      ],
+      "id": 20
     }
   ]
 }

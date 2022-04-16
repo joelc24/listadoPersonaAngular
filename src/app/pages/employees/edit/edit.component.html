@@ -3,10 +3,10 @@
         <legend>Actualizar Empleado</legend>
         <div class="form-group">
             <input type="hidden" class="form-control" name="id"
-            formControlName="id" value="{{ (selectedEmployee$ | async)?.id }}">
+            formControlName="id">
 
           <label for="nombre" class="form-label mt-4">Nombre del Empleado</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Ingresa Tu Nombre" name="nombre" required formControlName="nombre" value="{{ (selectedEmployee$ | async)?.nombre }}">
+          <input type="text" class="form-control" id="nombre" placeholder="Ingresa Tu Nombre" name="nombre" required formControlName="nombre" >
 
         </div>
         <div *ngIf="editForm.get('nombre')?.touched && editForm.get('nombre')?.errors?.['required']"  class="alert alert-danger">El Campo nombre es requerido</div>
@@ -15,7 +15,7 @@
 
       <div class="form-group">
         <label for="email" class="form-label mt-4">Direccion de Email</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingresa Tu Email" name="email" required formControlName="email" value="{{ (selectedEmployee$ | async)?.email }}">
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingresa Tu Email" name="email" required formControlName="email">
         <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
       </div>
 
@@ -34,14 +34,14 @@
 
         <div class="form-group">
             <label for="fecha" class="form-label mt-4">Fecha de Inicio</label>
-            <input type="date" class="form-control" id="fecha" name="fecha" required formControlName="fecha" value="{{ (selectedEmployee$ | async)?.fecha }}">
+            <input type="date" class="form-control" id="fecha" name="fecha" required formControlName="fecha">
         </div>
 
         <div *ngIf="editForm.get('fecha')?.touched && editForm.get('fecha')?.errors?.['required']"  class="alert alert-danger">El Campo fecha es requerido</div>
 
       <div class="form-group">
         <label for="notas" class="form-label mt-4">Notas</label>
-        <textarea class="form-control" id="notas" rows="3" name="notas" formControlName="notas" value="{{ (selectedEmployee$ | async)?.notas }}"></textarea>
+        <textarea class="form-control" id="notas" rows="3" name="notas" formControlName="notas"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid">Submit</button>
     </fieldset>

@@ -29,6 +29,21 @@
 
       <div *ngIf="addForm.get('telefono')?.touched && addForm.get('telefono')?.errors?.['minlength']"  class="alert alert-danger">Numero Telefonico no Valido</div>
 
+      <div formArrayName="areas">
+        <ng-container *ngFor="let item of areas.controls; let i=index;">
+            <div class="form-group">
+              <label for="">Departamento:  </label> 
+              <input type="text" class="form-control" [formControlName]="i">
+
+            </div>
+
+            <div *ngIf="areas.controls[i]?.touched && areas.controls[i]?.errors?.['required']"  class="alert alert-danger">El Departamento es requerido</div>
+
+            <div *ngIf="areas.controls[i]?.touched && areas.controls[i]?.errors?.['minlength']"  class="alert alert-danger">El Departamento Debe contener minimo 5 caracteres</div>
+
+        </ng-container>
+    </div>
+
         <div class="form-group">
             <label for="fecha" class="form-label mt-4">Fecha de Inicio</label>
             <input type="date" class="form-control" id="fecha" name="fecha" required formControlName="fecha">

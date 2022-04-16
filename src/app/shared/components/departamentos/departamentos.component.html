@@ -1,0 +1,78 @@
+<h1 class="mb-5">Departamentos a los que ha pertenecido el Empleado</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card border-info mt-3" [ngStyle]="{'width': '90%'}">
+            <div class="card-header">Datos del Empleado</div>
+            <div class="card-body">
+              <h4 class="card-title">Nombre del Empleado:</h4>
+              <p class="card-text">{{ data?.nombre }}</p>
+
+              <h4 class="card-title">Fecha de Inicio del Empleado:</h4>
+              <p class="card-text">{{ fecha(data?.fecha) }}</p>
+
+              <h4 class="card-title">Email del Empleado:</h4>
+              <p class="card-text">{{ data?.email }}</p>
+
+              <h4 class="card-title">Telefono del Empleado:</h4>
+              <p class="card-text">{{ data?.telefono ?? 'Por favor ir a editar e ingrese un numero'}}</p>
+
+              <div *ngIf="data.notas">
+                  <h4 class="card-title">Notas del Empleado:</h4>
+                  <p class="card-text">{{ data?.notas }}</p>
+              </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+        <form (ngSubmit)="onSubmit()" [formGroup]="departamentos">
+            <fieldset>
+              <legend>Asignar / Actualizar Departamentos</legend>
+                <input class="form-control" type="hidden" name="id" formControlName="id">
+              
+              
+                <input class="form-control" type="hidden" name="nombre" formControlName="nombre">
+              
+              
+                <input class="form-control" type="hidden" name="email" formControlName="email">
+              
+              
+                <input class="form-control" type="hidden" name="telefono" formControlName="telefono">
+              
+              
+                <input class="form-control" type="hidden" name="fecha" formControlName="fecha">
+              
+              
+                <input class="form-control" type="hidden" name="notas" formControlName="notas">
+              
+              
+                <div formArrayName="areas">
+                    <ng-container *ngFor="let item of areas.controls; let i=index;">
+                        <div class="form-group">
+                            <label for=""><span (click)="deletDepart(i)" class="btn btn-danger btn-sm">X</span> {{i == 0 ? 'Departamento Actual': 'Departamento Antiguo'}}  </label> 
+                            <input type="text" class="form-control" [formControlName]="i">
+
+                        </div>
+
+                        <div *ngIf="areas.controls[i]?.touched && areas.controls[i]?.errors?.['required']"  class="alert alert-danger">El Departamento es requerido</div>
+
+                        <div *ngIf="areas.controls[i]?.touched && areas.controls[i]?.errors?.['minlength']"  class="alert alert-danger">El Departamento Debe contener minimo 5 caracteres</div>
+
+                    </ng-container>
+                </div>
+                
+                <div class="btn-group mt-5">
+                    <button type="submit" class="btn btn-primary" [disabled]="departamentos.invalid">Submit</button>
+
+                     <button type="button" class="btn btn-dark ml-2" (click)="addDepartamento()">Agregar</button> 
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+

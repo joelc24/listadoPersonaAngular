@@ -9,19 +9,23 @@ import { HeaderModule } from './shared/components/header/header.module';
 import {HttpClientModule} from '@angular/common/http';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { DepartamentosComponent } from './shared/components/departamentos/departamentos.component';
+import { DepartamentosModule } from './shared/components/departamentos/departamentos.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    DepartamentosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DepartamentosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

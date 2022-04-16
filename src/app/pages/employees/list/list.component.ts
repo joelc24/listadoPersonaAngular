@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EmployeesService } from '../services/employees.service';
 import { EmployeI } from '../../../models/employe/employe.interface';
 import Swal from 'sweetalert2'
+import { formatFecha } from '../../../shared/helpers';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,7 @@ export class ListComponent implements OnInit {
   
  
   employees: EmployeI[] = []
-
+  fecha = formatFecha;
   constructor(private service: EmployeesService, private router: Router) { }
 
   ngOnInit(): void {
@@ -32,6 +33,10 @@ export class ListComponent implements OnInit {
   Ver(item: EmployeI): void{
     this.service.setEmployee(item)
     this.router.navigate(['details']);
+  }
+
+  Departamentos(item: EmployeI): void {
+    this.router.navigate([`edit/${item.id}`]);
   }
 
   Eliminar(item: EmployeI): void{

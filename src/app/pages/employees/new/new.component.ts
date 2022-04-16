@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeesService } from '../services/employees.service';
 import { Router } from '@angular/router';
 
@@ -33,6 +33,10 @@ export class NewComponent implements OnInit {
     error => { console.log('error->', error)})
   }
 
+  get areas() {
+    return this.addForm.get('areas') as FormArray;
+  }
+
   initForm():FormGroup{
    return this.fb.group({
       nombre: ['',[Validators.required, Validators.minLength(3)]],
@@ -40,6 +44,9 @@ export class NewComponent implements OnInit {
       fecha: ['',[Validators.required]],
       notas: [''],
       telefono: ['',[Validators.required, Validators.minLength(10)]],
+      areas: this.fb.array([
+        this.fb.control('',Validators.compose([Validators.required, Validators.minLength(5)]))
+      ])
     })
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeesService } from '../services/employees.service';
-import { EmployeI } from '../../../models/employe/employe.interface';
 import Swal from 'sweetalert2';
+import { formatFecha } from '../../../shared/helpers';
 
 @Component({
   selector: 'app-details',
@@ -14,6 +14,8 @@ export class DetailsComponent implements OnInit {
   employees: any = []
 
   selectedEmployee$ = this.service.selectedEmployee
+
+  fecha = formatFecha;
   constructor(private service: EmployeesService,
     private router: Router) { }
 
@@ -51,18 +53,7 @@ export class DetailsComponent implements OnInit {
         })
       }
     })
-    /* let resp = false
-    resp = confirm('¿Está seguro de eliminar este registro?');
-    if(resp){
-      
-          this.service.deleteEmployee(this.employees).subscribe(data => {
-            console.log(data)
-            resp = false
-            this.router.navigate(['list']);
-        })
-      
     
-  } */
   }
 
 }
