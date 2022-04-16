@@ -9,19 +9,27 @@ import { HeaderModule } from './shared/components/header/header.module';
 import {HttpClientModule} from '@angular/common/http';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { DepartamentosComponent } from './shared/components/departamentos/departamentos.component';
+import { DepartamentosModule } from './shared/components/departamentos/departamentos.module';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { FooterModule } from './shared/components/footer/footer.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    DepartamentosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DepartamentosModule,
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

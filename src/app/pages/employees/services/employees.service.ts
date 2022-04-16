@@ -5,6 +5,7 @@ import { EmployeI } from '../../../models/employe/employe.interface'
 import { environment } from '../../../../environments/environment';
 
 const initEmployees = {
+  areas: [],
   nombre: '',
   fecha: '',
   email: '',
@@ -34,6 +35,10 @@ export class EmployeesService {
 
   public getEmployees(): Observable<EmployeI[]> {
     return this.http.get<EmployeI[]>(this.API_EMPLOYEES);
+  }
+
+  public getEmployee(id: string): Observable<EmployeI> {
+    return this.http.get<EmployeI>(`${this.API_EMPLOYEES}${id}`);
   }
 
   public saveEmployee(employee: any): Observable<EmployeI[]> {
